@@ -1,5 +1,3 @@
-const tiltDemo = window.tiltDemo
-
 const apiKey = "RGAPI-09105804-5cbb-49dc-9071-83d9d7c15779"
 
 const apiBase = "https://loltilted.com/api"
