@@ -26,7 +26,7 @@ function gameTilt(match, summId) {
     var teamBase = summMatchId <= 5 ? 1 : 6;
     var teamMatchIds;
     for (var i = teamBase; i <= teamBase + 4; i++) {
-        if (i !== summonerId)
+        if (i !== summId)
             teamMatchIds.push(i);
     }
     var persPerf = performance([summId]);
