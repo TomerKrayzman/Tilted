@@ -7,8 +7,6 @@ function tiltDemo(matchList, summId) {
     return [69];
 }
 
-window.tiltDemo = tiltDemo
-
 function winrate(winsList) {
     wins = 0; losses = 0;
     for (var result of winsList) {
