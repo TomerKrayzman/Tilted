@@ -41,8 +41,8 @@ document.querySelector('#setName').addEventListener('click', async () => {
   console.log(games)
 
   let tiltArray, avgTilt
-  // [tiltArray, avgTilt] = totalTilt(games, aId)
-  [tiltArray, avgTilt] = dumbTilt(games, aId)
+  [tiltArray, avgTilt] = totalTilt(games, aId)
+  // [tiltArray, avgTilt] = dumbTilt(games, aId)
   console.log(tiltArray, avgTilt)
 
 
@@ -115,6 +115,11 @@ document.querySelector('#setName').addEventListener('click', async () => {
         backgroundColor: ['#FF0000', 'rgba(0, 0, 255, 0.3)']
       }],
       labels: ['Tilt', 'Chill']
+    },
+    options: {
+      tooltips: {enabled: false},
+      hover: {mode: null},
+      legend: {display: false},
     }
   })
 })
