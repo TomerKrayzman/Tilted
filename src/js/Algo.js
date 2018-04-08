@@ -11,7 +11,7 @@ function totalTilt(matchList, summId) {
     var overallTilt = 0;
     var tiltPerGame = matchList.map(match => gameTilt(match, summId));
     for (var i = 0; i < matchList.length; i++) { 
-        overallTilt += tiltPerGame[i] * (matchList.length - i));
+        overallTilt += (tiltPerGame[i] * (matchList.length - i));
     }
     return [tiltPerGame, overallTilt/matchList.length];
 }
