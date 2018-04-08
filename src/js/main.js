@@ -42,6 +42,11 @@ document.querySelector('#sname-but').addEventListener('click', () => {
   console.log(tiltArray)
 
   */
+
+  function colorIntensity(n) {
+    return `rgba(${n}, 0, ${100 - n}`
+  }
+
   // OVERRIDE TILTARRAY TODO: User actual data
   let tiltArray = [1, 5, 4, 7, 10, 4]
 
@@ -53,8 +58,11 @@ document.querySelector('#sname-but').addEventListener('click', () => {
       labels: tiltArray.map((v,i) => i + 1),
       datasets: [{
         label: "Tilt",
+        borderColor: 'rgba(0, 200, 255, 1)',
+        backgroundColor: 'rgba(0, 200, 255, 0.3)',
         data: tiltArray,
         lineTension: 0,
+        pointBackgroundColor: tiltArray.map(colorIntensity)
       }]
     },
     options: {
