@@ -1,3 +1,5 @@
+import { tiltDemo } from 'Algo';
+
 const apiKey = "RGAPI-09105804-5cbb-49dc-9071-83d9d7c15779"
 
 const apiBase = "https://loltilted.com/api"
@@ -39,4 +41,6 @@ document.querySelector('#setName').addEventListener('click', async () => {
   }))
 
   console.log(games)
+
+  tiltDemo(games, aId)
 })
