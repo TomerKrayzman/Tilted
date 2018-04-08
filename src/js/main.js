@@ -43,8 +43,11 @@ document.querySelector('#sname-but').addEventListener('click', () => {
 
   */
 
-  function colorIntensity(n) {
-    return `rgba(${n}, 0, ${100 - n}`
+  function colorIntensity(n, i, a) {
+    const max = 100 //Math.max(...a)
+    const r = Math.ceil((n / max) * 255)
+    const g = 255 - Math.ceil((n / max) * 255)
+    return `rgba(${r}, 0, ${g})`
   }
 
   // OVERRIDE TILTARRAY TODO: User actual data
@@ -58,6 +61,9 @@ document.querySelector('#sname-but').addEventListener('click', () => {
       labels: tiltArray.map((v,i) => i + 1),
       datasets: [{
         label: "Tilt",
+        pointRadius: 10,
+        pointHitRadius: 0,
+        pointHoverRadius: 10,
         borderColor: 'rgba(0, 200, 255, 1)',
         backgroundColor: 'rgba(0, 200, 255, 0.3)',
         data: tiltArray,
@@ -66,18 +72,35 @@ document.querySelector('#sname-but').addEventListener('click', () => {
       }]
     },
     options: {
+      tooltips: {enabled: false},
+      hover: {mode: null},
+      layout: {
+        padding: 50
+      },
       legend: {
         display: false
       },
       scales: {
         yAxes: [{
-          display: false,
+          // display: false,
+          scaleLabel: {
+            display: true,
+            labelString: "Tilt Level"
+          },
+          gridLines: {display: false},
           ticks: {
+            display: false,
             beginAtZero: true
           }
         }],
         xAxes: [{
-          display: false
+          // display: false
+          scaleLabel: {
+            display: true,
+            labelString: "Games",
+          },
+          gridLines: {display: false},
+          ticks: {display: false}
         }]
       }
     }
