@@ -10,6 +10,7 @@ function tiltDemo(matchList, summId) {
 function totalTilt(matchList, summId) {
     var overallTilt = 0;
     var tiltPerGame = matchList.map(match => gameTilt(match, summId));
+    tiltPerGame.reverse();
     for (var i = 0; i < matchList.length; i++) { 
         overallTilt += (tiltPerGame[i] * (matchList.length - i));
     }
@@ -18,20 +19,20 @@ function totalTilt(matchList, summId) {
 
 function gameTilt(match, summId) {
     for (var playerId of match.participantIdentities) {
-        if (playerId.player.summonerId === summId) {
+        if (playerId.player.accountId === summId) {
             var summMatchId = playerId.participantId;
             var summWon = (summMatchId <= 5) ? (match.teams[0].win === "Win") : (match.teams[1].win === "Win");
         }
     }
     var teamBase = summMatchId <= 5 ? 1 : 6;
-    var teamMatchIds;
+    var teamMatchIds = [];
     for (var i = teamBase; i <= teamBase + 4; i++) {
-        if (i !== summId)
+        if (i !== summMatchId)
             teamMatchIds.push(i);
     }
-    var persPerf = performance([summId]);
+    var persPerf = performance([summMatchId]);
     var teamPerf = performance(teamMatchIds);
-    return summWon ? (persPerf - teamPerf) : (teamPerf - persPerf);
+    return summWon ? (teamPerf - persPerf) : (persPerf - teamPerf);
 }
 
 function performance(summIds) {
@@ -39,7 +40,7 @@ function performance(summIds) {
     for (var id of summIds) {
         totalPerf += eachPerf(id);
     }
-    return totalPerf/summIds.length;
+    return totalPerf // /summIds.length;
 }
 
 function eachPerf(summId) {
