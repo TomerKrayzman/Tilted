@@ -111,7 +111,7 @@ document.querySelector('#setName').addEventListener('click', async () => {
     type: 'doughnut',
     data: {
       datasets: [{
-        data: [Math.min(100, avgTilt), Math.max(0, 100 - avgTilt)],
+        data: [Math.min(50, avgTilt), Math.max(0, 50 - avgTilt)],
         backgroundColor: ['#FF0000', 'rgba(0, 0, 255, 0.3)']
       }],
       labels: ['Tilt', 'Chill']
