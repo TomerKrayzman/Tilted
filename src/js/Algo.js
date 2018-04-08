@@ -30,12 +30,12 @@ function gameTilt(match, summId) {
         if (i !== summMatchId)
             teamMatchIds.push(i);
     }
-    var persPerf = performance([summMatchId]);
-    var teamPerf = performance(teamMatchIds);
+    var persPerf = performance(match, [summMatchId]);
+    var teamPerf = performance(match, teamMatchIds);
     return summWon ? (teamPerf - persPerf) : (persPerf - teamPerf);
 }
 
-function performance(summIds) {
+function performance(match, summIds) {
     var totalPerf = 0;
     for (var id of summIds) {
         totalPerf += eachPerf(id);
@@ -43,8 +43,17 @@ function performance(summIds) {
     return totalPerf // /summIds.length;
 }
 
+function getStats(match, summId) { 
+    for (var partDTO of match.participants) {
+        if (partDTO.participantId === summId)
+            return partDTO.participantId.stats;
+    }
+}
+
 function eachPerf(summId) {
     return summId;
+    //console.log(stats);
+    //return stats.deaths;
 }
 
 function winrate(winsList) {
