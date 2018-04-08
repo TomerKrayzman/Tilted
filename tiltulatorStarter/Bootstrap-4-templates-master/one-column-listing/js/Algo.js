@@ -9,7 +9,7 @@ export function tiltDemo(matchList, summId) {
 
 function winrate(winsList) {
     wins = 0; losses = 0;
-    for (var result in winsList) {
+    for (var result of winsList) {
         if (result = true)
             wins++;
         else
@@ -22,7 +22,7 @@ function sumStreak(winsList) {
     lastGameResult = winsList[winsList.length() - 1];
     count = 1;
     i = winsList.length() - 2;
-    while(i >= 0 && winsList[i] === lastGameResult) {
+    while (i >= 0 && winsList[i] === lastGameResult) {
         cpunt++;
     }
     return lastGameResult ? count : -count;
@@ -33,7 +33,7 @@ function parseMatches(matchList, summId) {
 }
 
 function parseMatchWin(match, summId) {
-    for each(var player in match.participants) {
+    for (var player of match.participants) {
         if (player.participantId === summId)
             return player.stats.win
     }
