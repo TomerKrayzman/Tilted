@@ -7,8 +7,12 @@ function tiltDemo(matchList, summId) {
     return [69];
 }
 
+function totalTilt(matchList, summId) {
+    var tiltval
+}
+
 function winrate(winsList) {
-    wins = 0; losses = 0;
+    var wins = 0; var losses = 0;
     for (var result of winsList) {
         if (result = true)
             wins++;
@@ -19,11 +23,11 @@ function winrate(winsList) {
 }
 
 function sumStreak(winsList) {
-    lastGameResult = winsList[winsList.length - 1];
-    count = 1;
-    i = winsList.length() - 2;
+    var lastGameResult = winsList[winsList.length - 1];
+    var count = 1;
+    var i = winsList.length() - 2;
     while (i >= 0 && winsList[i] === lastGameResult) {
-        cpunt++;
+        count++;
     }
     return lastGameResult ? count : -count;
 }
