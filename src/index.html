@@ -56,7 +56,7 @@
 
                     <div class="md-form">
                         <i class="fa fa- prefix grey-text"></i>
-                        <input type="number" id="endDate" class="form-control">
+                        <input id="matchNumber" type="number" id="endDate" class="form-control">
                         <label for="endDate">Number of Matches</label>
                     </div>
 
@@ -69,9 +69,11 @@
                    </div>   
             </div>
           <!--Grid column-->
-
         </div>
         <!--Grid row-->
+          <div class="row">
+              <canvas id="tiltChart" width="400" height="400"></canvas>
+          </div>
 
       </section>
       <!--Section: Main info-->
@@ -129,7 +131,8 @@
   <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="vendor/bootstrap.min.js"></script>
   <script type="text/javascript" src="vendor/mdb.min.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
+  <script src="js/Algo.js"></script>
+  <script src="js/main.js"></script>
 
   <!-- MDB core JavaScript -->
   <!-- Initializations -->
