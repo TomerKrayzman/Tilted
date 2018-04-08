@@ -1,9 +1,9 @@
 var wins, losses, curStreak, relativePerformance, matchHistory;
 
 function tiltDemo(matchList, summId) {
-    winsList = parseMatches(matchList, summId)
-    sumWinrate = winrate(winsList);
-    sumStreak = streak(winsList);
+   // winsList = parseMatches(matchList, summId)
+    //sumWinrate = winrate(winsList);
+    //sumStreak = streak(winsList);
     return [69];
 }
 
@@ -21,7 +21,7 @@ function winrate(winsList) {
 }
 
 function sumStreak(winsList) {
-    lastGameResult = winsList[winsList.length() - 1];
+    lastGameResult = winsList[winsList.length - 1];
     count = 1;
     i = winsList.length() - 2;
     while (i >= 0 && winsList[i] === lastGameResult) {
