@@ -1,5 +1,6 @@
 const apiKey = "RGAPI-09105804-5cbb-49dc-9071-83d9d7c15779"
 
+/*
 const apiBase = "https://loltilted.com/api"
 const summonerByNameUri = (sname) => `${apiBase}/lol/summoner/v3/summoners/by-name/${sname}?api_key=${apiKey}`
 const summonerById = (id) => `${apiBase}/lol/summoner/v3/summoners/${id}?api_key${apiKey}`
@@ -40,31 +41,40 @@ document.querySelector('#setName').addEventListener('click', async () => {
 
   console.log(games)
 
-  tiltArray = tiltDemo(games, aId)
+  let tiltArray = tiltDemo(games, aId)
   console.log(tiltArray)
+
+  */
+  // OVERRIDE TILTARRAY TODO: User actual data
+  let tiltArray = [1, 5, 4, 7, 10, 4]
 
   const tiltCanvas = document.querySelector('#tiltChart')
   const ctx = tiltCanvas.getContext('2d')
   const tiltChart = new Chart(ctx, {
     type: 'line',
     data: {
+      labels: tiltArray.map((v,i) => i + 1),
       datasets: [{
         label: "Tilt",
-        data: [1, 5, 4, 7, 10, 4],
-        steppedLine: true,
+        data: tiltArray,
+        lineTension: 0,
       }]
     },
     options: {
       legend: {
-
+        display: false
       },
       scales: {
         yAxes: [{
+          display: false,
           ticks: {
             beginAtZero: true
           }
+        }],
+        xAxes: [{
+          display: false
         }]
       }
     }
   })
-})
+//})
