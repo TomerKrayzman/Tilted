@@ -4,7 +4,7 @@ export function tiltDemo(matchList, summId) {
     winsList = parseMatches(matchList, summId)
     sumWinrate = winrate(winsList);
     sumStreak = streak(winsList);
-
+    return [69];
 }
 
 function winrate(winsList) {
