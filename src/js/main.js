@@ -22,4 +22,46 @@ document.querySelector('#sname-but').addEventListener('click', () => {
   // TODO: Error/sanity checks
   const res = xhr.response
   console.log(res)
+  const aId = res.accountId
+  xhr = new XMLHttpRequest()
+  xhr.open('GET', lastNMatches(aId, nMatches), false)
+  xhr.send()
+  const matches = JSON.parse(xhr.response)
+  console.log(matches)
+  const games = await Promise.all(matches.matches.map(async x => {
+    const r = new XMLHttpRequest()
+    r.open('GET', matchById(x.gameId), false)
+    r.send()
+    return JSON.parse(r.responseText)
+  }))
+
+  console.log(games)
+
+  tiltArray = tiltDemo(games, aId)
+  console.log(tiltArray)
+
+  const tiltCanvas = document.querySelector('#tiltChart')
+  const ctx = tiltCanvas.getContext('2d')
+  const tiltChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      datasets: [{
+        label: "Tilt",
+        data: [1, 5, 4, 7, 10, 4],
+        steppedLine: true,
+      }]
+    },
+    options: {
+      legend: {
+
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  })
 })
