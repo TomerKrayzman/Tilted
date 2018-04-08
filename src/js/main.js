@@ -43,13 +43,28 @@ document.querySelector('#setName').addEventListener('click', async () => {
   tiltArray = tiltDemo(games, aId)
   console.log(tiltArray)
 
-  const tiltCanvas = document.querySelector('#tiltGraph')
+  const tiltCanvas = document.querySelector('#tiltChart')
   const ctx = tiltCanvas.getContext('2d')
   const tiltChart = new Chart(ctx, {
     type: 'line',
-    data: tiltArray,
+    data: {
+      datasets: [{
+        label: "Tilt",
+        data: [1, 5, 4, 7, 10, 4],
+        steppedLine: true,
+      }]
+    },
     options: {
-      labels: []
+      legend: {
+
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
     }
   })
 })
