@@ -1,4 +1,4 @@
-import { tiltDemo } from 'Algo';
+const tiltDemo = window.tiltDemo
 
 const apiKey = "RGAPI-09105804-5cbb-49dc-9071-83d9d7c15779"
 
@@ -42,5 +42,16 @@ document.querySelector('#setName').addEventListener('click', async () => {
 
   console.log(games)
 
-  tiltDemo(games, aId)
+  tiltArray = tiltDemo(games, aId)
+  console.log(tiltArray)
+
+  const tiltCanvas = document.querySelector('#tiltGraph')
+  const ctx = tiltCanvas.getContext('2d')
+  const tiltChart = new Chart(ctx, {
+    type: 'line',
+    data: tiltArray,
+    options: {
+      labels: []
+    }
+  })
 })

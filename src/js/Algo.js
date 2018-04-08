@@ -1,11 +1,13 @@
 var wins, losses, curStreak, relativePerformance, matchHistory;
 
-export function tiltDemo(matchList, summId) {
+function tiltDemo(matchList, summId) {
     winsList = parseMatches(matchList, summId)
     sumWinrate = winrate(winsList);
     sumStreak = streak(winsList);
     return [69];
 }
+
+window.tiltDemo = tiltDemo
 
 function winrate(winsList) {
     wins = 0; losses = 0;
