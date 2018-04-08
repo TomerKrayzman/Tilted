@@ -4,12 +4,12 @@ export function tiltDemo(matchList, summId) {
     winsList = parseMatches(matchList, summId)
     sumWinrate = winrate(winsList);
     sumStreak = streak(winsList);
-    
+
 }
 
 function winrate(winsList) {
     wins = 0; losses = 0;
-    for (result in winsList) {
+    for (var result in winsList) {
         if (result = true)
             wins++;
         else
@@ -28,13 +28,13 @@ function sumStreak(winsList) {
     return lastGameResult ? count : -count;
 }
 
-function parseMatches(matchList, summId) { 
+function parseMatches(matchList, summId) {
     return matchList.map(match => parseMatchWin(match, summId));
 }
 
-function parseMatchWin(match, summId) { 
-    for each(player in match.participants) {
-        if (player.participantId === summId) 
+function parseMatchWin(match, summId) {
+    for each(var player in match.participants) {
+        if (player.participantId === summId)
             return player.stats.win
     }
     return false; // should never happen
