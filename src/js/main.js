@@ -42,6 +42,7 @@ document.querySelector('#setName').addEventListener('click', async () => {
 
   let tiltArray, avgTilt
   [tiltArray, avgTilt] = totalTilt(games, aId)
+  // [tiltArray, avgTilt] = dumbTilt(games, aId)
   console.log(tiltArray, avgTilt)
 
 
@@ -102,6 +103,23 @@ document.querySelector('#setName').addEventListener('click', async () => {
           ticks: {display: false}
         }]
       }
+    }
+  })
+
+  avgTilt = Math.max(0, avgTilt)
+  const dChart = new Chart(document.querySelector('#dChart').getContext('2d'), {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [Math.min(100, avgTilt), Math.max(0, 100 - avgTilt)],
+        backgroundColor: ['#FF0000', 'rgba(0, 0, 255, 0.3)']
+      }],
+      labels: ['Tilt', 'Chill']
+    },
+    options: {
+      tooltips: {enabled: false},
+      hover: {mode: null},
+      legend: {display: false},
     }
   })
 })
