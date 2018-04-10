@@ -38,22 +38,24 @@ function gameTilt(match, summId) {
 function performance(match, summIds) {
     var totalPerf = 0;
     for (var id of summIds) {
-        totalPerf += eachPerf(id);
+        totalPerf += eachPerf(getStats(match, id));
     }
-    return totalPerf // /summIds.length;
+    return totalPerf; // /summIds.length;
 }
 
 function getStats(match, summId) { 
     for (var partDTO of match.participants) {
-        if (partDTO.participantId === summId)
-            return partDTO.participantId.stats;
+        if (partDTO.participantId === summId){
+            console.log(partDTO.stats);
+            return partDTO.stats;
+        }
     }
 }
 
-function eachPerf(summId) {
-    return summId;
-    //console.log(stats);
-    //return stats.deaths;
+function eachPerf(stats) {
+    // return summId;
+    return stats.kills !== 0 ? 
+            stats.kills/stats.deaths : stats.kills;
 }
 
 function winrate(winsList) {

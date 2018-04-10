@@ -1,4 +1,4 @@
-const apiKey = "RGAPI-09105804-5cbb-49dc-9071-83d9d7c15779"
+const apiKey = "RGAPI-8c74723c-38c8-4503-9132-dfef1dfaba82"
 
 const apiBase = "https://loltilted.com/api"
 const summonerByNameUri = (sname) => `${apiBase}/lol/summoner/v3/summoners/by-name/${sname}?api_key=${apiKey}`
